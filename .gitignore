@@ -1,0 +1,22 @@
+# Environment variables
+.env*
+!.env*.example
+
+# IDEs and editors
+.c9/
+.classpath
+/.idea
+*.launch
+.project
+.settings/
+*.sublime-workspace
+
+# VSCode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+
+# Temp files
+tmp/
