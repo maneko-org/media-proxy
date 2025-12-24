@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"maneko/media-proxy/internal/config"
 	"maneko/media-proxy/internal/logger"
+	"maneko/media-proxy/pkg/storage"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -12,6 +13,11 @@ import (
 func main() {
 	cfg := config.MustLoad()
 	log := logger.SetupLogger(cfg.Env)
+
+	_, err := storage.New(&cfg.Storage, log)
+	if err != nil {
+		panic(err)
+	}
 
 	app := fiber.New(fiber.Config{
 		DisableStartupMessage: true,
